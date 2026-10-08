@@ -1,0 +1,37 @@
+.controls {
+  display: flex;
+  overflow: hidden;
+  background: var(--surface-glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.control {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.25rem;
+  color: var(--text-primary);
+  background: transparent;
+  border: 0;
+  transition: background-color var(--duration-fast) ease;
+}
+
+.control + .control {
+  border-left: 1px solid var(--line);
+}
+
+.control:hover:not(:disabled) {
+  background: var(--fill-hover);
+}
+
+.control:disabled {
+  color: var(--text-tertiary);
+  cursor: default;
+}
+
+.control:focus-visible {
+  outline-offset: -2px;
+}

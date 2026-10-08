@@ -1,0 +1,111 @@
+.app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  animation: stage-in 900ms var(--ease-out) 250ms both;
+}
+
+/*
+ * Every step stays mounted and stacked. Leaving panels accelerate out in the
+ * direction of travel; the arriving panel decelerates in once the camera is
+ * past the halfway point of the dive.
+ */
+.panel {
+  --travel: 26vh;
+
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--header-height) + var(--space-6)) var(--gutter) var(--space-24);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity calc(var(--dive-duration) * 0.32) var(--ease-in),
+    transform calc(var(--dive-duration) * 0.42) var(--ease-in),
+    filter calc(var(--dive-duration) * 0.42) var(--ease-in),
+    visibility 0s linear calc(var(--dive-duration) * 0.42);
+}
+
+.panel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Flexible spacers centre the content but still let tall content scroll. */
+.panel::before,
+.panel::after {
+  content: '';
+  flex: 1 0 var(--space-4);
+}
+
+.panel > * {
+  flex: none;
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.panel[data-position='above'] {
+  transform: translate3d(0, calc(var(--travel) * -1), 0);
+  filter: blur(6px);
+}
+
+.panel[data-position='below'] {
+  transform: translate3d(0, var(--travel), 0);
+  filter: blur(6px);
+}
+
+.panel[data-position='current'] {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    opacity calc(var(--dive-duration) * 0.42) var(--ease-out) calc(var(--dive-duration) * 0.45),
+    transform calc(var(--dive-duration) * 0.6) var(--ease-out) calc(var(--dive-duration) * 0.4),
+    filter calc(var(--dive-duration) * 0.5) var(--ease-out) calc(var(--dive-duration) * 0.45),
+    visibility 0s;
+}
+
+.footer {
+  position: fixed;
+  right: var(--gutter);
+  bottom: var(--space-6);
+  left: var(--gutter);
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.footer > * {
+  pointer-events: auto;
+}
+
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (max-width: 767px) {
+  .panel {
+    padding-top: calc(var(--header-height) + var(--space-8));
+    padding-bottom: calc(var(--space-24) + env(safe-area-inset-bottom));
+  }
+
+  .footer {
+    display: none;
+  }
+}

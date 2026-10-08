@@ -1,0 +1,81 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 var(--gutter);
+  pointer-events: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.wordmark {
+  font-size: var(--text-md);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.divider {
+  width: 1px;
+  height: 1rem;
+  background: var(--line-strong);
+}
+
+.context {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+}
+
+.total {
+  color: var(--text-tertiary);
+}
+
+.segments {
+  display: flex;
+  gap: var(--space-1);
+  padding: 0;
+  list-style: none;
+}
+
+.segments li {
+  width: 1.25rem;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--line-strong);
+  transition: background-color 400ms var(--ease-out);
+}
+
+.segments li[data-state='done'] {
+  background: var(--text-primary);
+}
+
+.segments li[data-state='current'] {
+  background: var(--accent);
+}
+
+@media (max-width: 767px) {
+  .divider,
+  .context,
+  .segments {
+    display: none;
+  }
+}

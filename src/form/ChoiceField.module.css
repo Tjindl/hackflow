@@ -1,0 +1,86 @@
+.group {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 28rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 3rem;
+  padding: var(--space-2-5) var(--space-4) var(--space-2-5) var(--space-3);
+  text-align: left;
+  color: var(--text-primary);
+  background: var(--fill-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+
+.option:hover {
+  background: var(--fill-hover);
+  border-color: var(--line-strong);
+}
+
+.option:active {
+  transform: scale(0.99);
+}
+
+.checked,
+.checked:hover {
+  background: var(--accent-soft);
+  border-color: rgb(126 230 242 / 0.6);
+}
+
+.key {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  color: var(--text-secondary);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+}
+
+.checked .key {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.label {
+  flex: 1;
+  font-size: var(--text-md);
+  line-height: 1.35;
+}
+
+.check {
+  flex: none;
+  color: var(--accent);
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.checked .check {
+  opacity: 1;
+  transform: none;
+}

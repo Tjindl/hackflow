@@ -1,0 +1,15 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #04192c;
+  animation: lights-on 1400ms var(--ease-out) both;
+}
+
+@keyframes lights-on {
+  from {
+    opacity: 0;
+  }
+}

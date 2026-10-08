@@ -1,0 +1,61 @@
+:root {
+  color-scheme: dark;
+
+  /* Colour. Text and lines are tints of one cool white so they sit in the water. */
+  --text-primary: #eef6fa;
+  --text-secondary: rgb(238 246 250 / 0.7);
+  --text-tertiary: rgb(238 246 250 / 0.48);
+  --line: rgb(238 246 250 / 0.14);
+  --line-strong: rgb(238 246 250 / 0.3);
+  --fill-subtle: rgb(238 246 250 / 0.045);
+  --fill-hover: rgb(238 246 250 / 0.09);
+  --surface-glass: rgb(2 14 26 / 0.45);
+  --accent: #7ee6f2;
+  --accent-soft: rgb(126 230 242 / 0.13);
+  --accent-ink: #03222f;
+  --danger: #ffa194;
+  --button-bg: #eef7fa;
+  --button-bg-hover: #ffffff;
+  --button-ink: #05202f;
+
+  /* Typography */
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --text-2xs: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-md: 0.9375rem;
+  --text-field: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --text-title: clamp(1.5rem, 1.2rem + 1.1vw, 2.125rem);
+  --tracking-caps: 0.12em;
+
+  /* Spacing on a 4 px grid */
+  --space-1: 0.25rem;
+  --space-1-5: 0.375rem;
+  --space-2: 0.5rem;
+  --space-2-5: 0.625rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-24: 6rem;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Motion. --dive-duration is set from JS to the length of the current trip. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+  --duration-fast: 140ms;
+  --duration-base: 240ms;
+  --dive-duration: 1400ms;
+
+  /* Layout */
+  --gutter: clamp(1.25rem, 3vw, 2.5rem);
+  --header-height: 4.5rem;
+  --content-width: 40rem;
+}

@@ -1,0 +1,30 @@
+.bar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .bar {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 3;
+    display: flex;
+    gap: var(--space-2);
+    padding: var(--space-6) var(--gutter) calc(var(--space-4) + env(safe-area-inset-bottom));
+    background: linear-gradient(to top, rgb(1 8 16 / 0.72) 40%, rgb(1 8 16 / 0));
+  }
+
+  .back {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+  }
+
+  .back:disabled {
+    opacity: 0.4;
+  }
+
+  .next {
+    flex: 1;
+    height: 3rem;
+  }
+}

@@ -1,0 +1,111 @@
+.gauge {
+  --label-width: 4.75rem;
+
+  position: fixed;
+  top: 50%;
+  left: var(--gutter);
+  z-index: 2;
+  width: 14rem;
+  height: clamp(18rem, 54vh, 32rem);
+  translate: 0 -50%;
+  pointer-events: none;
+}
+
+.track,
+.travelled {
+  position: absolute;
+  top: 0;
+  left: var(--label-width);
+  width: 1px;
+}
+
+.track {
+  bottom: 0;
+  background: var(--line);
+}
+
+.travelled {
+  background: linear-gradient(to bottom, rgb(126 230 242 / 0), rgb(126 230 242 / 0.7));
+}
+
+.minorTick {
+  position: absolute;
+  left: var(--label-width);
+  width: 4px;
+  height: 1px;
+  background: var(--line);
+}
+
+.scale {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stop {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  translate: 0 -50%;
+}
+
+.stopLabel {
+  width: var(--label-width);
+  padding-right: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-align: right;
+  color: var(--text-tertiary);
+}
+
+.tick {
+  width: 8px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.marker {
+  position: absolute;
+  left: var(--label-width);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  translate: -4px -50%;
+}
+
+.dot {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 3px rgb(126 230 242 / 0.16),
+    0 0 14px rgb(126 230 242 / 0.7);
+}
+
+.readout {
+  display: grid;
+  gap: 1px;
+  white-space: nowrap;
+}
+
+.depth {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.zone {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1179px) {
+  .gauge {
+    display: none;
+  }
+}
